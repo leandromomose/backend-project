@@ -1,0 +1,47 @@
+{
+  "name": "fullstack-project-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node ./build/index.js",
+    "dev": "ts-node-dev ./src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leandromomose/fullstack-project-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leandromomose/fullstack-project-backend/issues"
+  },
+  "homepage": "https://github.com/leandromomose/fullstack-project-backend#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dayjs": "^1.10.4",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jest": "^26.6.3",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.21.18",
+    "moment": "^2.29.1",
+    "mysql": "^2.18.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.20",
+    "@types/node": "^14.14.31",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/knex": "^0.16.1",
+    "@types/uuid": "^8.3.0",
+    "@types/cors": "^2.8.10",
+    "@types/express": "^4.17.11",
+    "ts-jest": "^26.5.2",
+    "ts-node-dev": "^1.1.1",
+    "typescript": "^4.2.2"
+  }
+}
