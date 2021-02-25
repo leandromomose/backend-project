@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && node ./build/src/index.js",
+    "start": "tsc && node ./build/index.js",
     "dev": "ts-node-dev ./src/index.ts",
-    "setup": "tsc && node ./build/src/tables/MySqlSetup.js",
+    "setup": "tsc && node ./build/tables/MySqlSetup.js",
     "test": "clear && echo \"Running tests...\" && jest"
   },
   "repository": {

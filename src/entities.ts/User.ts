@@ -1,14 +1,20 @@
 export class User {
     constructor(
-        public readonly id: string,
-        public readonly name: string,
-        public readonly email: string,
-        public readonly nickname: string,
-        public readonly password: string,
+        private id: string,
+        private name: string,
+        private email: string,
+        private nickname: string,
+        private password: string,
     ) { }
+
+    public getId(): string {return this.id}
+    public getName(): string {return this.name}
+    public getEmail(): string {return this.email}
+    public getNickname(): string {return this.nickname}
+    public getPassword(): string {return this.password}
 }
 
-export interface UserInputDTO {
+export interface SignupInputDTO {
     name: string
     email: string
     nickname: string
