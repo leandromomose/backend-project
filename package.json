@@ -4,15 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && node ./build/index.js",
-    "dev": "ts-node-dev ./src/index.ts"
+    "start": "tsc && node ./build/src/index.js",
+    "dev": "ts-node-dev ./src/index.ts",
+    "setup": "tsc && node ./build/src/tables/MySqlSetup.js",
+    "test": "clear && echo \"Running tests...\" && jest"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/leandromomose/fullstack-project-backend.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Leandro Momose",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/leandromomose/fullstack-project-backend/issues"
