@@ -1,6 +1,7 @@
 import cors from "cors";
 import express from "express";
 import { AddressInfo } from "net";
+import { genreRouter } from "./routes/genreRouter";
 import { userRouter } from "./routes/userRouter";
 
 
@@ -10,6 +11,7 @@ app.use(express.json())
 app.use(cors())
 
 app.use("/user", userRouter)
+app.use("/genre", genreRouter)
 
 const server = app.listen(3003, () => {
    if (server) {
