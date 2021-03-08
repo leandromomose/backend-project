@@ -89,7 +89,6 @@ export class UserBusiness {
             return accessToken
 
         } catch (error) {
-            
             throw new CustomError(error.statusCode, error.message)
         }
     }
