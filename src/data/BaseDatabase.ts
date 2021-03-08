@@ -6,10 +6,6 @@ dotenv.config()
 
 export class BaseDatabase {
 
-   protected tableNames = {
-      users: "MUSIC_MANAGER_USERS"
-   }
-
    protected static connection: Knex = knex({
       client: "mysql",
       connection: {

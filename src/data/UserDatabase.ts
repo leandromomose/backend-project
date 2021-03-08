@@ -1,9 +1,8 @@
 import { User } from "../entities.ts/User";
-import { CustomError } from "../error/CustomError";
 import { BaseDatabase } from "./BaseDatabase";
 
 export class UserDatabase extends BaseDatabase {
-    private static TABLE_NAME = "USERS_MUSIC_MANAGER"
+    private static TABLE_NAME = "USER_EPICS"
 
     public async insertUser(user: User): Promise<void> {
         try {
@@ -18,8 +17,7 @@ export class UserDatabase extends BaseDatabase {
             })
             .into(UserDatabase.TABLE_NAME)
         } catch (error) {
-
-            throw new CustomError(500, "An unexpected error ocurred")
+            throw new Error(error.sqlMessage)
         }
     }
 
@@ -39,8 +37,7 @@ export class UserDatabase extends BaseDatabase {
                 result[0].password
             )
         } catch (error) {
-            
-            throw new CustomError(500, "An unexpected error ocurred")
+            throw new Error(error.sqlMessage)
         }
     }
 }

@@ -4,7 +4,7 @@ export class MySqlSetup extends BaseDatabase {
     public async createTable(): Promise<void> {
         try {
             await BaseDatabase.connection.raw(`
-                CREATE TABLE IF NOT EXISTS USERS_MUSIC_MANAGER (
+                CREATE TABLE IF NOT EXISTS USER_EPICS (
                     id VARCHAR(255) PRIMARY KEY,
                     name VARCHAR(255) NOT NULL,
                     email VARCHAR(255) NOT NULL UNIQUE,
@@ -14,33 +14,33 @@ export class MySqlSetup extends BaseDatabase {
             `)
 
             await BaseDatabase.connection.raw(`
-                CREATE TABLE IF NOT EXISTS MUSICS_MUSIC_MANAGER (
+                CREATE TABLE IF NOT EXISTS POST_EPICS (
                     id VARCHAR(255) PRIMARY KEY,
-                    title VARCHAR(255) NOT NULL,
-                    author_id VARCHAR(255) NOT NULL,
+                    subtitle VARCHAR(750) NOT NULL,
                     date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                    file VARCHAR(255) NOT NULL,
-                    album VARCHAR(255) NOT NULL,
-                    FOREIGN KEY(author_id) REFERENCES USERS_MUSIC_MANAGER(id)
+                    file VARCHAR(750) NOT NULL,
+                    collection VARCHAR(255) NOT NULL,
+                    author_id VARCHAR(255) NOT NULL,
+                    FOREIGN KEY(author_id) REFERENCES USER_EPICS(id)
                 )
             `)
 
             await BaseDatabase.connection.raw(`
-                CREATE TABLE IF NOT EXISTS GENRES_MUSIC_MANAGER (
+                CREATE TABLE IF NOT EXISTS TAG_EPICS (
                     id VARCHAR(255) PRIMARY KEY,
                     author_id VARCHAR(255) NOT NULL,
-                    genre TEXT NOT NULL,
-                    FOREIGN KEY(author_id) REFERENCES USERS_MUSIC_MANAGER(id)
+                    tag TEXT NOT NULL,
+                    FOREIGN KEY(author_id) REFERENCES USER_EPICS(id)
                 )
             `)
 
             await BaseDatabase.connection.raw(`
-                CREATE TABLE IF NOT EXISTS MUSICS_GENRES_MUSIC_MANAGER (
-                    music_id VARCHAR(255),
-                    genre_id VARCHAR(255),
-                    PRIMARY KEY (music_id, genre_id),
-                    FOREIGN KEY (music_id) REFERENCES MUSICS_MUSIC_MANAGER(id),
-                    FOREIGN KEY (genre_id) REFERENCES GENRES_MUSIC_MANAGER(id)
+                CREATE TABLE IF NOT EXISTS POSTTAGS_EPICS (
+                    post_id VARCHAR(255),
+                    tag_id VARCHAR(255),
+                    PRIMARY KEY (post_id, tag_id),
+                    FOREIGN KEY (post_id) REFERENCES POST_EPICS(id),
+                    FOREIGN KEY (tag_id) REFERENCES TAG_EPICS(id)
                 )
             `)
 
